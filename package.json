@@ -1,0 +1,37 @@
+{
+  "name": "jathrust",
+  "version": "1.0.0",
+  "description": "Create your own basic project express or API project",
+  "main": "src/index.ts",
+  "bin": "./bin/jathrust",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "prompts": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.4",
+    "@types/prompts": "^2.0.8",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Limerio/jathrust.git"
+  },
+  "keywords": [
+    "CLI"
+  ],
+  "author": "Limerio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Limerio/jathrust/issues"
+  },
+  "homepage": "https://github.com/Limerio/jathrust#readme"
+}
