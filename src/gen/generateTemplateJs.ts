@@ -11,8 +11,6 @@ import {
   FooterTemplateEjs,
   templateIndexPug,
   templateAppJsPug,
-  HeaderTemplatePug,
-  FooterTemplatePug,
   envTemplateAPI,
   templateStyleCss,
 } from "../templates/templates";
@@ -95,14 +93,6 @@ async function generateJavascriptTemplatePug(dir: string) {
     await writeFile(
       path.join(dir, "src", "views", "index.pug"),
       templateIndexPug
-    );
-    await writeFile(
-      path.join(dir, "src", "views", "includes", "header.pug"),
-      HeaderTemplatePug
-    );
-    await writeFile(
-      path.join(dir, "src", "views", "includes", "footer.pug"),
-      FooterTemplatePug
     );
     await writeFile(path.join(dir, "src", "public", "js", "script.js"), "");
     await writeFile(

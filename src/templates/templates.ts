@@ -22,10 +22,6 @@ export {
 
 export { templateAppTsPug, templateAppJsPug } from "./pug/app.template";
 export { templateIndexPug } from "./pug/index.pug.template";
-export {
-  HeaderTemplatePug,
-  FooterTemplatePug,
-} from "./pug/headerFooter.pug.template";
 
 /* ******************** OTHERS ******************** */
 

@@ -1,6 +1,6 @@
 import prompts from "prompts";
 import { newType, typeProject } from "./constants";
-import { projectType, confirmDelete, confirmStart } from "./questions";
+import { projectType, confirmDelete } from "./questions";
 import createProject from "../projects/createProject";
 import deleteProject from "../projects/deleteProject";
 

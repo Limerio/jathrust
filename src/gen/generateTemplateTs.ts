@@ -13,12 +13,9 @@ import {
   HeaderTemplateEjs,
   FooterTemplateEjs,
   templateStyleCss,
-  HeaderTemplatePug,
-  FooterTemplatePug,
   templateIndexPug,
 } from "../templates/templates";
 import { createEnvFile, createTsConfigFile } from "../init/initNpm";
-import { write } from "fs";
 
 async function generateTypescriptTemplateBasic(dir: string) {
   try {

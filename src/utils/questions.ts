@@ -13,7 +13,6 @@ const questions: Array<PromptObject> = [
     message: "Choose a option",
     choices: [
       { title: "New project", value: newType.new },
-      { title: "Start project", value: newType.start },
       { title: "Delete project", value: newType.delete },
     ],
   },
