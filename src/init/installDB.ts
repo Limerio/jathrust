@@ -9,7 +9,7 @@ import { choicesDB } from "../utils/constants";
 export default async function installDB(projectDir: string) {
   const dir = path.join(projectDir);
   const { confirmIncludeDB, includeDBName } = await prompts(questionsDatabase);
-  if (confirmIncludeDB) {
+  if (confirmIncludeDB && includeDBName !== "none") {
     await execSync(`npm i ${includeDBName}`, {
       cwd: dir,
     });

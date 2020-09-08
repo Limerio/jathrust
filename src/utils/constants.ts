@@ -46,6 +46,7 @@ const choicesDB: Array<any> = [
   { title: "PostGreSQL", value: database.postgresql },
   { title: "Redis", value: database.redis },
   { title: "SQLITE", value: database.sqlite },
+  { title: "None", value: "none" },
 ];
 
 export {
