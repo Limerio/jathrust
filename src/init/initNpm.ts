@@ -1,4 +1,4 @@
-import { execSync } from "child_process";
+import { execSync, exec } from "child_process";
 import { writeFile, readFile } from "./fs";
 import {
   language,
@@ -82,7 +82,8 @@ function createTemplate(
   dir: string,
   projectType: string,
   lang: string,
-  template: string | null
+  template: string | null,
+  graphqlIncludeConfirm: boolean | null
 ) {
   if (lang === language.javascript) {
     if (projectType === typeProject.basicExpress && template === "none") {
@@ -105,15 +106,25 @@ function createTemplate(
       generateJavascriptTemplatePug(dir);
     } else if (projectType === typeProject.apiExpress) {
       generateJavascriptTemplateAPI(dir);
+      if (graphqlIncludeConfirm) {
+        execSync("npm install express-graphql graphql", {
+          cwd: dir,
+        });
+      }
     }
   } else if (lang === language.typescript) {
     if (projectType === typeProject.apiExpress) {
       generateTypescriptTemplateAPI(dir);
+      if (graphqlIncludeConfirm) {
+        execSync("npm install express-graphql graphql @types/graphql", {
+          cwd: dir,
+        });
+      }
     } else if (
       projectType === typeProject.basicExpress &&
       template === "none"
     ) {
-      generateJavascriptTemplateBasic(dir);
+      generateTypescriptTemplateBasic(dir);
     } else if (
       projectType === typeProject.basicExpress &&
       template === templateContentNodejs.ejs
@@ -167,10 +178,9 @@ function createJathrustFile(dir: string, data: string) {
 }
 
 function startCmdProject(dir: string, event: string) {
-  const value = execSync(`npm run ${event}`, {
+  const { stderr } = exec(`npm run ${event}`, {
     cwd: dir,
   });
-  return console.log(value);
 }
 
 export {

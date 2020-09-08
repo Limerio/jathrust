@@ -26,4 +26,34 @@ enum symbols {
   error = "✖",
 }
 
-export { newType, typeProject, language, templateContentNodejs, symbols };
+enum database {
+  mongoose = "mongoose",
+  postgresql = "pg",
+  redis = "redis",
+  mssql = "mssql",
+  mysql = "mysql",
+  sqlite = "sqlite3",
+  firebase_tools = "firebase-tools",
+  mariadb = "mariadb",
+}
+
+const choicesDB: Array<any> = [
+  { title: "Firebase tools", value: database.firebase_tools },
+  { title: "MariaDB", value: database.mariadb },
+  { title: "MongoDB (mongoose)", value: database.mongoose },
+  { title: "MsSQL", value: database.mssql },
+  { title: "MySQL", value: database.mysql },
+  { title: "PostGreSQL", value: database.postgresql },
+  { title: "Redis", value: database.redis },
+  { title: "SQLITE", value: database.sqlite },
+];
+
+export {
+  newType,
+  typeProject,
+  language,
+  templateContentNodejs,
+  symbols,
+  database,
+  choicesDB,
+};

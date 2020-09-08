@@ -3,6 +3,7 @@ import {
   newType,
   language,
   templateContentNodejs,
+  choicesDB,
 } from "./constants";
 import { PromptObject } from "prompts";
 
@@ -37,6 +38,8 @@ const projectType: Array<PromptObject> = [
       { title: "Basic express project", value: typeProject.basicExpress },
       { title: "API express project", value: typeProject.apiExpress },
     ],
+    validate: (value: string) =>
+      value.length === 0 ? `You don't have choice a type of project` : true,
   },
   {
     type: (prev: string) =>
@@ -50,6 +53,14 @@ const projectType: Array<PromptObject> = [
     ],
     validate: (value: string) =>
       value.length === 0 ? `You don't have choice a template` : true,
+  },
+  {
+    type: (prev: string) =>
+      prev === typeProject.apiExpress ? "confirm" : null,
+    name: "graphqlIncludeConfirm",
+    message: "Would you include graphql in your project ?",
+    validate: (value: string) =>
+      value.length === 0 ? `You don't have choice if would you graphql` : true,
   },
   {
     type: "select",
@@ -110,4 +121,25 @@ const questionsGithub: Array<PromptObject> = [
   },
 ];
 
-export { questions, projectType, confirmDelete, confirmStart, questionsGithub };
+const questionsDatabase: Array<PromptObject> = [
+  {
+    type: "confirm",
+    name: "confirmIncludeDB",
+    message: "Would you include database in your project ?",
+  },
+  {
+    type: (prev: boolean) => (prev === true ? "select" : null),
+    name: "includeDBName",
+    message: "Choose a database in this list",
+    choices: choicesDB,
+  },
+];
+
+export {
+  questions,
+  projectType,
+  confirmDelete,
+  confirmStart,
+  questionsGithub,
+  questionsDatabase,
+};

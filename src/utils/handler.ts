@@ -6,16 +6,28 @@ import deleteProject from "../projects/deleteProject";
 
 async function handler(option: string, nameProject: string): Promise<void> {
   if (option === newType.new) {
-    const { typeOfProject, lang, template } = await prompts(projectType);
+    const {
+      typeOfProject,
+      lang,
+      template,
+      graphqlIncludeConfirm,
+    } = await prompts(projectType);
     if (typeOfProject === typeProject.basicExpress) {
       await createProject(
         nameProject,
         typeProject.basicExpress,
         lang,
-        template
+        template,
+        graphqlIncludeConfirm
       );
     } else if (typeOfProject === typeProject.apiExpress) {
-      await createProject(nameProject, typeProject.apiExpress, lang, template);
+      await createProject(
+        nameProject,
+        typeProject.apiExpress,
+        lang,
+        template,
+        graphqlIncludeConfirm
+      );
     }
   } else if (option === newType.delete) {
     const { confirm } = await prompts(confirmDelete);

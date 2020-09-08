@@ -1,6 +1,6 @@
 {
   "name": "jathrust",
-  "version": "1.0.4",
+  "version": "1.1.1",
   "description": "Create your own basic project express or API project",
   "main": "src/index.ts",
   "bin": "./bin/jathrust",

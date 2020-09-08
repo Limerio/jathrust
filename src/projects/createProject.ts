@@ -5,6 +5,7 @@ import { createDir } from "../init/fs";
 import { language } from "../utils/constants";
 import { templateJathrustJson } from "../templates/templates";
 import symbols from "../utils/symbols";
+import installDB from "../init/installDB";
 // import prompts from "prompts";
 // import { questionsGithub } from "../utils/questions";
 
@@ -14,7 +15,8 @@ async function createProject(
   nameProject: string,
   type: string,
   lang: string,
-  template: string | null
+  template: string | null,
+  graphqlIncludeConfirm: boolean | null
 ) {
   const projectDir = path.join(dir, nameProject);
   try {
@@ -22,7 +24,14 @@ async function createProject(
     // const { githubURL } = await prompts(questionsGithub);
     await initNpm(projectDir, lang, nameProject);
     console.log(`${symbols.success} Npm initialization completed`);
-    await createTemplate(projectDir, type, lang, template);
+    await installDB(projectDir);
+    await createTemplate(
+      projectDir,
+      type,
+      lang,
+      template,
+      graphqlIncludeConfirm
+    );
     console.log(`${symbols.success} Template created`);
     await createJathrustFile(
       projectDir,
