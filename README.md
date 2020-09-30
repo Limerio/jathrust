@@ -6,12 +6,15 @@ Install:
 Run `npm i -g jathrust`
 
 Created a new project:
-Be `jathrust`, be `jathrust new <project name>`
+with `jathrust` or with `jathrust new <project name>`
 
 Deleted this project
-Be `jathrust`, be `jathrust delete <project name>`
+with `jathrust` or with `jathrust delete <project name>`
 
 ## Change logs
+
+### Change logs 1.2.0
+#### *soon*
 
 ### Change logs 1.1.2
 
