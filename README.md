@@ -15,6 +15,7 @@ with `jathrust` or with `jathrust delete <project name>`
 
 ### Change logs 1.2.0
 #### *soon*
+*update reported*
 
 ### Change logs 1.1.2
 
